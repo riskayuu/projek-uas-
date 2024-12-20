@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import logo from '../images/logo1.jpg'; 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,12 +11,13 @@ function Navbar() {
   return (
     <nav className="bg-gray-600 text-white">
       <div className="container mx-auto flex justify-between items-center p-4">
-      <img 
-        src="/images/logo2.png"  // Perbaiki path ke folder images
-        alt="Logo UKM Seni Musik UAD" 
-        className="w-12 h-12" // Sesuaikan ukuran logo
-      />
-      <h1 className="text-2xl font-bold">UKM Seni Musik UAD</h1>
+        {/* Use the imported logo here */}
+        <img 
+          src={logo}  // Use the imported logo
+          alt="Logo UKM Seni Musik UAD" 
+          className="w-12 h-12"  // Adjust size if needed
+        />
+        <h1 className="text-2xl font-bold">UKM Seni Musik UAD</h1>
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -55,10 +56,14 @@ function Navbar() {
               Kegiatan
             </Link>
           </li>
+          <li>
+            <Link to="/daftar" className="hover:underline">
+              Daftar
+            </Link>
+          </li>
         </ul>
-       
-        
       </div>
+      
       {/* Menu dropdown for mobile */}
       {isOpen && (
         <div className="md:hidden bg-blue-700">

@@ -7,6 +7,8 @@ import Kegiatan from "./pages/DetailKegiatan";
 import DetailKegiatan from "./pages/DetailKegiatan";
 import NotFound from "./pages/NotFound";
 import InfoSection from "./components/InfoSection";
+import RegistrationForm from "./pages/Daftar";
+import AnggotaList from "./pages/List";
 
 function App() {
   return (
@@ -19,7 +21,11 @@ function App() {
           <Route path="/kegiatan" element={<Kegiatan />} />
           <Route path="/kegiatandetail" element={<DetailKegiatan />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/daftar" element={<RegistrationForm />} />
+          <Route path="/list" element={<AnggotaList />} />
         </Routes>
+
+      
       </div>
       
       <InfoSection />

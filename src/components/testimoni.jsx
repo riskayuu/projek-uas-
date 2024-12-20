@@ -33,6 +33,14 @@ const Testimoni = () => {
     );
   };
 
+  const handleDislike = (id) => {
+    setTestimoni((prevTestimoni) =>
+      prevTestimoni.map((testi) =>
+        testi.id === id ? { ...testi, likes: testi.likes - 1 } : testi
+      )
+    );
+  };
+
   // Fungsi untuk menambah komentar
   const handleAddComment = (id) => {
     const newComment = prompt("Masukkan komentar baru:");
@@ -86,6 +94,13 @@ const Testimoni = () => {
                 >
                   <i className="bx bxs-like text-xl"></i>
                   <span className="text-lg">{testi.likes} Suka</span>
+                </button>
+                <button
+                  className="flex items-center space-x-2 text-blue-500 hover:text-blue-700 transition duration-200"
+                  onClick={() => handleDislike(testi.id)}
+                >
+                  <i className="bx bxs-like text-xl"></i>
+                  <span className="text-lg">{testi.likes} Gak</span>
                 </button>
                 <button
                   className="flex items-center space-x-2 text-green-500 hover:text-green-700 transition duration-200"

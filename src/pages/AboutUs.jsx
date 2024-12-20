@@ -1,26 +1,73 @@
+import { useState } from 'react';
 import Testimoni from "../components/testimoni";
+
 function AboutUs() {
-    return (
-      <div className="p-4">
-        
 
-        <h1 className="text-3xl font-bold mb-4 text-center">
-          Tentang UKM Seni Musik UAD
-        </h1>
-        <p className="text-justify">
-        UKM Seni Musik berdiri pada tanggal 1 September 1998 bertempat di area Universitas Ahmad Dahlan Yogyakarta.  UKM Seni Musik adalah wahana dan sarana pengembangan kemampuan dan kreatifitas anggota dalam kemampuannya menuju peningkatan wawasan dan keilmuan dalam bidangnya yang khas. Tujuan: UKM Seni Musik UAD bertujuan  untuk mengumpulkan dan mengembangkan kemampuan dan daya kreatifitas mahasiswa dalam kegiatan ekstrakurikuler dibidang music khususnya dan membentuk kader-kader yang berkualitas, mandiri, kreatif, inovatif, serta tanggung jawab dalam hal organisasi. Dalam perjalanannya  UKM Seni Musik mempunyai dua divisi yaitu : Divisi Musisi
-Divisi ini menjadi wadah bagi anggota untuk menyalurkan bakat dan kreativitas di bidang musik. Anggota yang tergabung dalam divisi ini didorong untuk mengembangkan kemampuan mereka dalam bermusik, baik secara individu maupun dalam sebuah band atau kelompok. Kegiatan divisi ini mencakup latihan rutin, workshop, kolaborasi lintas genre, dan berbagai penampilan dalam acara kampus maupun di luar kampus. Divisi Musisi juga menjadi tempat bagi mahasiswa untuk menciptakan karya-karya musik orisinal, sekaligus meningkatkan kepercayaan diri dalam performa panggung.
+  const [isMusicDivisiOpen, setIsMusicDivisiOpen] = useState(false);
+  const [isEOdivisiOpen, setIsEOdivisiOpen] = useState(false);
 
-Divisi Event Organizer (EO)
-Divisi ini dirancang untuk melatih dan mengembangkan kemampuan anggota dalam merancang, mengelola, dan menyelenggarakan berbagai acara musik. Melalui serangkaian kegiatan seperti konser, festival seni, dan pertunjukan kreatif lainnya, anggota Divisi EO mendapatkan pengalaman langsung dalam dunia event management. Divisi ini juga bertujuan untuk mencetak calon-calon entertainer profesional yang mampu mengelola acara dengan standar tinggi, sekaligus memahami kebutuhan teknis dan artistik dari sebuah acara musik.
-        </p>
-        
-        <div className="mt-9">
-        <Testimoni/>
-        </div>
+
+  const toggleMusicDivisi = () => setIsMusicDivisiOpen(!isMusicDivisiOpen);
+
+  const toggleEOdivisi = () => setIsEOdivisiOpen(!isEOdivisiOpen);
+
+  return (
+    <div className="p-4">
+      <h1 className="text-3xl font-bold mb-4 text-center">Tentang UKM Seni Musik UAD</h1>
+
+      <p className="text-justify">
+        UKM Seni Musik berdiri pada tanggal 1 September 1998 bertempat di area Universitas Ahmad Dahlan Yogyakarta.
+        UKM Seni Musik adalah wahana dan sarana pengembangan kemampuan dan kreatifitas anggota dalam kemampuannya menuju
+        peningkatan wawasan dan keilmuan dalam bidangnya yang khas.
+        <br /><br />
+        Tujuan: UKM Seni Musik UAD bertujuan untuk mengumpulkan dan mengembangkan kemampuan dan daya kreatifitas mahasiswa
+        dalam kegiatan ekstrakurikuler dibidang musik khususnya dan membentuk kader-kader yang berkualitas, mandiri, kreatif,
+        inovatif, serta tanggung jawab dalam hal organisasi.
+      </p>
+
+      <div className="mt-6">
+        <button
+          onClick={toggleMusicDivisi}
+          className="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button"
+        >
+          Divisi Musisi
+        </button>
+        {isMusicDivisiOpen && (
+          <div className="block mt-4 p-4 bg-white border border-slate-200 shadow-sm rounded-lg">
+            <p className="text-slate-600 font-light">
+              Divisi Musisi menjadi wadah bagi anggota untuk menyalurkan bakat dan kreativitas di bidang musik.
+              Anggota yang tergabung dalam divisi ini didorong untuk mengembangkan kemampuan mereka dalam bermusik,
+              baik secara individu maupun dalam sebuah band atau kelompok. Kegiatan divisi ini mencakup latihan rutin,
+              workshop, kolaborasi lintas genre, dan berbagai penampilan dalam acara kampus maupun di luar kampus.
+            </p>
+          </div>
+        )}
       </div>
-    );
-  }
-  
-  export default AboutUs;
-  
+      <div className="mt-6">
+        <button
+          onClick={toggleEOdivisi}
+          className="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          type="button"
+        >
+          Divisi Event Organizer
+        </button>
+        {isEOdivisiOpen && (
+          <div className="block mt-4 p-4 bg-white border border-slate-200 shadow-sm rounded-lg">
+            <p className="text-slate-600 font-light">
+              Divisi Event Organizer dirancang untuk melatih dan mengembangkan kemampuan anggota dalam merancang,
+              mengelola, dan menyelenggarakan berbagai acara musik. Melalui serangkaian kegiatan seperti konser,
+              festival seni, dan pertunjukan kreatif lainnya, anggota Divisi EO mendapatkan pengalaman langsung dalam
+              dunia event management.
+            </p>
+          </div>
+        )}
+      </div>
+      <div className="mt-9">
+        <Testimoni />
+      </div>
+    </div>
+  );
+}
+
+export default AboutUs;
