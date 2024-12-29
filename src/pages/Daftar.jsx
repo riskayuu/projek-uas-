@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -57,12 +58,13 @@ function RegistrationForm() {
             Klik di sini untuk bergabung.
           </a>
         </p>
-        <button
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
-          onClick={() => setIsSubmitted(true)}
-        >
+        
+        <button>
+        <Link to="/" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">
           Home
+        </Link>
         </button>
+          
       </div>
     );
   }

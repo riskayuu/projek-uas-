@@ -20,6 +20,18 @@ function AboutUs() {
         UKM Seni Musik adalah wahana dan sarana pengembangan kemampuan dan kreatifitas anggota dalam kemampuannya menuju
         peningkatan wawasan dan keilmuan dalam bidangnya yang khas.
         <br /><br />
+        UKM Seni Musik Universitas Ahmad Dahlan adalah sebuah organisasi
+        internal kampus yang bergerak dibidang musik, baik dalam bermusik
+        maupun dalam menyelenggarakan sebuah acara yang berhubungan
+        dengan musik. Dalam perkembangannya UKM Seni Musik memiliki dua
+        spesifikasi, yaitu Musisi dan Event Organizer. Spesifikasi Musisi merupakan
+        wadah untuk menyalurkan bakat dan kreativitas anggota dibidang musik,
+        sedangkan Spesifikasi Event Organizer menjadi wadah yang siap
+        meluncurkan calon-calon professional entertainer melalui serangkaian
+        acara seperti Sunday Sound Session ini. Dari spesifikasi musisi telah
+        melahirkan banyak musisi di dalam UKM Seni Musik dan dari spesifikasi
+        Event Organizer telah menyelenggarakan event-event besar sebagai
+        bentuk dari penyaluran bakat yang dimiliki oleh para anggota
         Tujuan: UKM Seni Musik UAD bertujuan untuk mengumpulkan dan mengembangkan kemampuan dan daya kreatifitas mahasiswa
         dalam kegiatan ekstrakurikuler dibidang musik khususnya dan membentuk kader-kader yang berkualitas, mandiri, kreatif,
         inovatif, serta tanggung jawab dalam hal organisasi.
@@ -63,6 +75,7 @@ function AboutUs() {
           </div>
         )}
       </div>
+
       <div className="mt-9">
         <Testimoni />
       </div>
