@@ -1,0 +1,35 @@
+{
+  "kegiatanMendatang": [
+    { "id": 1, "nama": "Latihan Mingguan", "tanggal": "2024-12-20", "lokasi": "Studio Musik UAD" },
+    { "id": 2, "nama": "Konser Amal", "tanggal": "2024-12-25", "lokasi": "Aula UAD" }
+  ],
+  "anggotaList": [
+    {
+      "id": 1,
+      "name": "Riska Ayu",
+      "nim": "2300016028",
+      "program": "Sistem Informasi",
+      "semester": 3,
+      "isActive": true,
+      "photo": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "name": "Naya Agiva",
+      "nim": "2300016024",
+      "program": "Sistem Informasi",
+      "semester": 3,
+      "isActive": false,
+      "photo": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 120,
+      "name": "Deva Awalluna",
+      "nim": "2200017120",
+      "program": "Teknik Informatika",
+      "semester": 5,
+      "isActive": true,
+      "photo": "https://via.placeholder.com/150"
+    }
+  ]
+}

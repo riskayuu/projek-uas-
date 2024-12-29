@@ -8,9 +8,10 @@ const Testimoni = () => {
       pesan: "Sangat bermanfaat! Saya merasa lebih percaya diri setelah bergabung.",
       rating: 4,
       likes: 10,
+      dislikes: 2,
       comments: [],
       jabatan: "Anggota Aktif",
-      foto: "https://via.placeholder.com/100", // Gambar profil
+      foto: "https://via.placeholder.com/100",
     },
     {
       id: 2,
@@ -18,9 +19,10 @@ const Testimoni = () => {
       pesan: "Pengalaman yang luar biasa! Banyak belajar tentang seni musik.",
       rating: 5,
       likes: 15,
+      dislikes: 1,
       comments: [],
       jabatan: "Ketua Divisi",
-      foto: "https://via.placeholder.com/100", // Gambar profil
+      foto: "https://via.placeholder.com/100",
     },
   ]);
 
@@ -28,15 +30,26 @@ const Testimoni = () => {
   const handleLike = (id) => {
     setTestimoni((prevTestimoni) =>
       prevTestimoni.map((testi) =>
-        testi.id === id ? { ...testi, likes: testi.likes + 1 } : testi
+        testi.id === id
+          ? {
+              ...testi,
+              likes: testi.likes + 1,
+            }
+          : testi
       )
     );
   };
 
+  // Fungsi untuk menambah dislike
   const handleDislike = (id) => {
     setTestimoni((prevTestimoni) =>
       prevTestimoni.map((testi) =>
-        testi.id === id ? { ...testi, likes: testi.likes - 1 } : testi
+        testi.id === id
+          ? {
+              ...testi,
+              dislikes: testi.dislikes + 1,
+            }
+          : testi
       )
     );
   };
@@ -50,7 +63,7 @@ const Testimoni = () => {
           testi.id === id
             ? {
                 ...testi,
-                comments: [...testi.comments, newComment], // Menambah komentar baru
+                comments: [...testi.comments, newComment],
               }
             : testi
         )
@@ -96,11 +109,11 @@ const Testimoni = () => {
                   <span className="text-lg">{testi.likes} Suka</span>
                 </button>
                 <button
-                  className="flex items-center space-x-2 text-blue-500 hover:text-blue-700 transition duration-200"
+                  className="flex items-center space-x-2 text-red-500 hover:text-red-700 transition duration-200"
                   onClick={() => handleDislike(testi.id)}
                 >
-                  <i className="bx bxs-like text-xl"></i>
-                  <span className="text-lg">{testi.likes} Gak</span>
+                  <i className="bx bxs-dislike text-xl"></i>
+                  <span className="text-lg">{testi.dislikes} Tidak Suka</span>
                 </button>
                 <button
                   className="flex items-center space-x-2 text-green-500 hover:text-green-700 transition duration-200"

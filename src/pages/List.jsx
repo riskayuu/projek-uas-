@@ -1,30 +1,39 @@
-// src/pages/AnggotaList.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "boxicons/css/boxicons.min.css";
 
 const AnggotaList = () => {
-  // Data dummy anggota dengan status aktif
-  const [anggotaList, setAnggotaList] = useState([
-    { id: 1, name: "Riska Ayu", nim: "2300016028", program: "Sistem Informasi", semester: 3, isActive: true, photo: "https://via.placeholder.com/150" },
-    { id: 2, name: "Napi Agipol", nim: "2300016115", program: "Sistem Informasi", semester: 3, isActive: false, photo: "https://via.placeholder.com/150" },
-    { id: 3, name: "Oping", nim: "2300160141", program: "Ilmu Komunikasi", semester: 3, isActive: true, photo: "https://via.placeholder.com/150" },
-    { id: 4, name: "Galih Alfarizi", nim: "2200016038", program: "Psikologi", semester: 4, isActive: false, photo: "https://via.placeholder.com/150" },
-    { id: 5, name: "Faris Arista", nim: "654321789", program: "Sistem Informasi", semester: 1, isActive: true, photo: "https://via.placeholder.com/150" },
-  ]);
+  const [anggotaList, setAnggotaList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Fungsi untuk menghapus anggota
+  useEffect(() => {
+    // Fetch data from json-server
+    fetch("http://localhost:3001/anggotaList")
+      .then((response) => response.json())
+      .then((data) => {
+        setAnggotaList(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
   const handleDelete = (id) => {
     const updatedList = anggotaList.filter((anggota) => anggota.id !== id);
     setAnggotaList(updatedList);
   };
 
-  // Fungsi untuk mengubah status anggota
   const handleToggleStatus = (id) => {
-    const updatedList = anggotaList.map((anggota) => 
+    const updatedList = anggotaList.map((anggota) =>
       anggota.id === id ? { ...anggota, isActive: !anggota.isActive } : anggota
     );
     setAnggotaList(updatedList);
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="p-4">
@@ -36,7 +45,6 @@ const AnggotaList = () => {
             className="bg-white border p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300"
           >
             <div className="flex flex-col items-center">
-              {/* Foto anggota */}
               <img
                 src={anggota.photo}
                 alt={`${anggota.name}'s photo`}
@@ -55,7 +63,6 @@ const AnggotaList = () => {
                 <strong>Semester:</strong> {anggota.semester}
               </p>
             </div>
-            {/* Status dengan Boxicons */}
             <div className="flex items-center mt-4">
               <i
                 className={`bx ${
@@ -69,7 +76,6 @@ const AnggotaList = () => {
                 </span>
               </p>
             </div>
-            {/* Tombol untuk Hapus dan Ubah Status */}
             <div className="flex justify-between mt-4">
               <button
                 onClick={() => handleToggleStatus(anggota.id)}

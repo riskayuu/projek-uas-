@@ -2,8 +2,8 @@ import { BsInstagram, BsTwitter, BsFacebook, BsYoutube } from "react-icons/bs"; 
 
 function InfoSection() {
   return (
-    <section className="bg-gray-700 text-white p-8">
-      <div className="container mx-auto flex justify-between">
+    <section className="info-section bg-gray-700 text-white p-8">
+      <div className="container flex justify-between">
         {/* Kolom Hubungi Kami */}
         <div className="w-1/3">
           <h3 className="text-xl font-semibold mb-4">Hubungi Kami</h3>
